@@ -9,6 +9,7 @@ import { LoginPage } from './pages/login/login.page';
 import { MaterialModule } from './modules/material.module';
 import { RegisterPage } from './pages/register/register.page';
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
