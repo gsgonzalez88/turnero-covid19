@@ -1,11 +1,47 @@
-<section style="background-color: gray;" class="register-form">
-    <form fxLayout="column" fxLayoutAlign="center center">
+<section style="background-color: skyblue;" class="register-form">
+    <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
         <mat-form-field>
-            <input matInput type="email" placeholder="Correo">
+            <input 
+                matInput 
+                type="email" 
+                placeholder="Correo" 
+                ngModel 
+                name="email"
+                email
+                required
+                #emailInput="ngModel"
+                >
+                <mat-error *ngIf="emailInput.hasError('required')">Ingresar un email</mat-error>
+                <mat-error *ngIf="!emailInput.hasError('required')">Email invalido</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="deberia tener 6 caracteres">
+            <input 
+                matInput 
+                type="password" 
+                placeholder="Contraseña" 
+                ngModel 
+                name="password"
+                required
+                minlength="6"                
+                >
+                <mat-error>Tiene que ser al menos 6 caracteres</mat-error>
+                <!-- <mat-hint>Debería tener al menos 6 caracteres</mat-hint> -->
         </mat-form-field>
         <mat-form-field>
-            <input matInput type="password" placeholder="Contraseña">
-        </mat-form-field>
+            <input 
+                matInput 
+                type="password" 
+                placeholder="Confirmar Contraseña" 
+                ngModel 
+                name="password"
+                required
+                minlength="6"                
+                >
+                <mat-error>Tiene que ser al menos 6 caracteres</mat-error>
+                <!-- <mat-hint>Debería tener al menos 6 caracteres</mat-hint> -->
+        </mat-form-field>        
+            <mat-checkbox labelPosition="after" ngModel name="agree" required>Acepto los terminos y condiciones</mat-checkbox>        
+        <button type="submit" mat-raised-button >Registrar</button>
     </form>
 </section>
 
