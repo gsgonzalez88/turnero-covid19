@@ -1,5 +1,9 @@
-<section style="background-color: skyblue;" class="register-form">
-    <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
+<section style="height: 170px;">
+
+</section>
+<section style="background-color: orange; border: 1px solid black; padding-bottom: 20px;" class="register-form">    
+    <h1 fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">Ingresa tus datos</h1>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
         <mat-form-field>
             <input 
                 matInput 
@@ -41,7 +45,7 @@
                 <!-- <mat-hint>Debería tener al menos 6 caracteres</mat-hint> -->
         </mat-form-field>        
             <mat-checkbox labelPosition="after" ngModel name="agree" required>Acepto los terminos y condiciones</mat-checkbox>        
-        <button type="submit" mat-raised-button >Registrar</button>
+        <button type="submit" mat-raised-button [disabled]="f.invalid" >Registrar</button>
     </form>
 </section>
 
